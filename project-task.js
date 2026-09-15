@@ -51,20 +51,21 @@ function getAdoptionFee(animalName) {
 // Main program
 console.log("Welcome to the Pet Shelter System");
 
-while (true) {
+let running = true;
+while (running) {
   let action = readlineSync
     .question("Choose an action: 'add', 'fee', or 'exit': ")
     .toLowerCase();
 
   if (action === "exit") {
     console.log("Goodbye!");
-    break;
+    running = false;
   }
 
   if (action === "add") {
     let animal = readlineSync.question("Enter the animal's name: ");
     let fee = Number(readlineSync.question("Enter the adoption fee: "));
-    
+
     addAnimal(animal, fee);
     console.log(`${animal} added with a fee of $${fee}.`);
 
