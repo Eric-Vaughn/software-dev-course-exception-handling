@@ -33,7 +33,7 @@ let animals = [];
 let fees = [];
 
 function addAnimal(name, fee) {
-  if (!name || typeof name !== String() || fee < 0 || typeof fee !== Number()) {
+  if (!name || typeof name !== "string" || fee < 0 || typeof fee !== "number") {
     throw new Error("Invalid animal name or adoption fee!");
   }
   animals.push(name);
@@ -64,7 +64,7 @@ while (running) {
 
   if (action === "add") {
     let animal = readlineSync.question("Enter the animal's name: ");
-    let fee = Number(readlineSync.question("Enter the adoption fee: "));
+    let fee = readlineSync.question("Enter the adoption fee: ");
     
     try {
       addAnimal(animal, fee);
